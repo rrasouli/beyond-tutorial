@@ -10,6 +10,9 @@ def board(request):
         if form.is_valid():
             form.save()
             return redirect('board')
-        else:
-            form = MessageForm()
-        return render(request, 'msgboard/board.html', {'messages': messages, 'form': form, })
+    else:
+        form = MessageForm()
+    return render(request, 'msgboard/board.html', {
+        'messages': messages,
+        'form': form,
+        })
